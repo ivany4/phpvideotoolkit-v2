@@ -288,7 +288,12 @@
             {
                 $video_codec = isset($codecs['libx265']) === true ? 'libx265' : 'hevc';
             }
-            
+//          work around for av1 names
+            else if(in_array($video_codec, array('libaom-av1', 'av1')) === true)
+            {
+                $video_codec = isset($codecs['libaom-av1']) === true ? 'libaom-av1' : 'av1';
+            }
+
 //          validate the video codecs that are available from ffmpeg.
             if(isset($codecs[$video_codec]) === false)
             {

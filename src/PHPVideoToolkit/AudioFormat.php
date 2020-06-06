@@ -202,6 +202,11 @@
                 {
                     $codecs_in_preference_order = array('libvorbis', 'vorbis');
                 }
+//              fix opus
+                else if(in_array($audio_codec, array('opus', 'libopus')) === true)
+                {
+                    $codecs_in_preference_order = array('libopus', 'opus');
+                }
 //              fix acc
                 else if(in_array($audio_codec, array('libfdk_aac', 'libfaac', 'aac', 'libvo_aacenc')) === true)
                 {
